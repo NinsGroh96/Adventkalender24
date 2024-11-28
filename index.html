@@ -35,7 +35,6 @@
         }
 
         .door {
-            color: #fff; /* Weiß */
             font-weight: bold;
             font-size: 1.5rem;
             display: flex;
@@ -48,58 +47,50 @@
             transition: transform 0.3s, background 0.3s;
             position: relative;
             overflow: hidden;
+            color: #fff; /* Weiß */
         }
 
-        /* Festliche Farben */
+        /* Zusätzliche Farben */
         .door.red {
-            background: linear-gradient(135deg, #8b0000, #b22222); /* Rote Farbverläufe */
+            background: linear-gradient(135deg, #8b0000, #b22222); /* Rot */
         }
 
         .door.green {
-            background: linear-gradient(135deg, #006400, #228b22); /* Grüne Farbverläufe */
+            background: linear-gradient(135deg, #006400, #228b22); /* Grün */
         }
 
         .door.gold {
-            background: linear-gradient(135deg, #ffd700, #daa520); /* Goldene Farbverläufe */
+            background: linear-gradient(135deg, #ffd700, #daa520); /* Gold */
         }
 
-        /* Hover-Effekte */
-        .door.red:hover {
-            background: linear-gradient(135deg, #b22222, #ff4500);
+        .door.silver {
+            background: linear-gradient(135deg, #c0c0c0, #a9a9a9); /* Silber */
         }
 
-        .door.green:hover {
-            background: linear-gradient(135deg, #228b22, #32cd32);
+        .door.blue {
+            background: linear-gradient(135deg, #00008b, #1e90ff); /* Blau */
         }
 
-        .door.gold:hover {
-            background: linear-gradient(135deg, #daa520, #ffa500);
+        .door.purple {
+            background: linear-gradient(135deg, #4b0082, #800080); /* Lila */
         }
 
-        /* Glitzereffekt */
+        .door:hover {
+            transform: scale(1.1);
+        }
+
+        /* Glitzereffekt (statisch) */
         .door::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
-            animation: sparkle 3s infinite;
-            opacity: 0.6;
+            width: 100%;
+            height: 100%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/6/6e/Stars_pattern.png');
+            background-size: cover;
+            opacity: 0.3;
             pointer-events: none;
-        }
-
-        @keyframes sparkle {
-            0% {
-                transform: translate(-50%, -50%) scale(0.8);
-            }
-            50% {
-                transform: translate(50%, 50%) scale(1.2);
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(0.8);
-            }
         }
 
         @media (max-width: 768px) {
@@ -132,27 +123,27 @@
         <div class="door red" onclick="toggleAudio(1)">10</div>
         <div class="door green" onclick="toggleAudio(2)">21</div>
         <div class="door gold" onclick="toggleAudio(3)">7</div>
-        <div class="door red" onclick="toggleAudio(4)">15</div>
-        <div class="door green" onclick="toggleAudio(5)">3</div>
-        <div class="door gold" onclick="toggleAudio(6)">17</div>
+        <div class="door silver" onclick="toggleAudio(4)">15</div>
+        <div class="door blue" onclick="toggleAudio(5)">3</div>
+        <div class="door purple" onclick="toggleAudio(6)">17</div>
         <div class="door red" onclick="toggleAudio(7)">13</div>
         <div class="door green" onclick="toggleAudio(8)">19</div>
         <div class="door gold" onclick="toggleAudio(9)">6</div>
-        <div class="door red" onclick="toggleAudio(10)">22</div>
-        <div class="door green" onclick="toggleAudio(11)">2</div>
-        <div class="door gold" onclick="toggleAudio(12)">23</div>
+        <div class="door silver" onclick="toggleAudio(10)">22</div>
+        <div class="door blue" onclick="toggleAudio(11)">2</div>
+        <div class="door purple" onclick="toggleAudio(12)">23</div>
         <div class="door red" onclick="toggleAudio(13)">9</div>
         <div class="door green" onclick="toggleAudio(14)">16</div>
         <div class="door gold" onclick="toggleAudio(15)">5</div>
-        <div class="door red" onclick="toggleAudio(16)">24</div>
-        <div class="door green" onclick="toggleAudio(17)">4</div>
-        <div class="door gold" onclick="toggleAudio(18)">18</div>
+        <div class="door silver" onclick="toggleAudio(16)">24</div>
+        <div class="door blue" onclick="toggleAudio(17)">4</div>
+        <div class="door purple" onclick="toggleAudio(18)">18</div>
         <div class="door red" onclick="toggleAudio(19)">12</div>
         <div class="door green" onclick="toggleAudio(20)">8</div>
         <div class="door gold" onclick="toggleAudio(21)">20</div>
-        <div class="door red" onclick="toggleAudio(22)">14</div>
-        <div class="door green" onclick="toggleAudio(23)">1</div>
-        <div class="door gold" onclick="toggleAudio(24)">11</div>
+        <div class="door silver" onclick="toggleAudio(22)">14</div>
+        <div class="door blue" onclick="toggleAudio(23)">1</div>
+        <div class="door purple" onclick="toggleAudio(24)">11</div>
     </div>
 
     <!-- Versteckte Audio-Player -->
