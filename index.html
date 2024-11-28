@@ -22,6 +22,20 @@
             font-size: 2.5rem;
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Kleinere Schriftgröße für Tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem; /* Noch kleinere Schriftgröße für Smartphones */
+            }
         }
 
         .calendar {
@@ -35,6 +49,8 @@
         }
 
         .door {
+            background: #fff; /* Weiß */
+            color: #8b0000; /* Dunkelrot */
             font-weight: bold;
             font-size: 1.5rem;
             display: flex;
@@ -46,51 +62,15 @@
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s, background 0.3s;
             position: relative;
-            overflow: hidden;
+        }
+
+        .door.clicked {
+            background: linear-gradient(135deg, #ffd700, #ff4500); /* Gold-Orange-Farbverlauf */
             color: #fff; /* Weiß */
-        }
-
-        /* Zusätzliche Farben */
-        .door.red {
-            background: linear-gradient(135deg, #8b0000, #b22222); /* Rot */
-        }
-
-        .door.green {
-            background: linear-gradient(135deg, #006400, #228b22); /* Grün */
-        }
-
-        .door.gold {
-            background: linear-gradient(135deg, #ffd700, #daa520); /* Gold */
-        }
-
-        .door.silver {
-            background: linear-gradient(135deg, #c0c0c0, #a9a9a9); /* Silber */
-        }
-
-        .door.blue {
-            background: linear-gradient(135deg, #00008b, #1e90ff); /* Blau */
-        }
-
-        .door.purple {
-            background: linear-gradient(135deg, #4b0082, #800080); /* Lila */
         }
 
         .door:hover {
             transform: scale(1.1);
-        }
-
-        /* Glitzereffekt (statisch) */
-        .door::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/6/6e/Stars_pattern.png');
-            background-size: cover;
-            opacity: 0.3;
-            pointer-events: none;
         }
 
         @media (max-width: 768px) {
@@ -119,31 +99,31 @@
 <body>
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
-        <!-- Türchen in zufälliger Reihenfolge mit verschiedenen Farben -->
-        <div class="door red" onclick="toggleAudio(1)">10</div>
-        <div class="door green" onclick="toggleAudio(2)">21</div>
-        <div class="door gold" onclick="toggleAudio(3)">7</div>
-        <div class="door silver" onclick="toggleAudio(4)">15</div>
-        <div class="door blue" onclick="toggleAudio(5)">3</div>
-        <div class="door purple" onclick="toggleAudio(6)">17</div>
-        <div class="door red" onclick="toggleAudio(7)">13</div>
-        <div class="door green" onclick="toggleAudio(8)">19</div>
-        <div class="door gold" onclick="toggleAudio(9)">6</div>
-        <div class="door silver" onclick="toggleAudio(10)">22</div>
-        <div class="door blue" onclick="toggleAudio(11)">2</div>
-        <div class="door purple" onclick="toggleAudio(12)">23</div>
-        <div class="door red" onclick="toggleAudio(13)">9</div>
-        <div class="door green" onclick="toggleAudio(14)">16</div>
-        <div class="door gold" onclick="toggleAudio(15)">5</div>
-        <div class="door silver" onclick="toggleAudio(16)">24</div>
-        <div class="door blue" onclick="toggleAudio(17)">4</div>
-        <div class="door purple" onclick="toggleAudio(18)">18</div>
-        <div class="door red" onclick="toggleAudio(19)">12</div>
-        <div class="door green" onclick="toggleAudio(20)">8</div>
-        <div class="door gold" onclick="toggleAudio(21)">20</div>
-        <div class="door silver" onclick="toggleAudio(22)">14</div>
-        <div class="door blue" onclick="toggleAudio(23)">1</div>
-        <div class="door purple" onclick="toggleAudio(24)">11</div>
+        <!-- Türchen in zufälliger Reihenfolge -->
+        <div class="door" onclick="toggleDoor(1)">10</div>
+        <div class="door" onclick="toggleDoor(2)">21</div>
+        <div class="door" onclick="toggleDoor(3)">7</div>
+        <div class="door" onclick="toggleDoor(4)">15</div>
+        <div class="door" onclick="toggleDoor(5)">3</div>
+        <div class="door" onclick="toggleDoor(6)">17</div>
+        <div class="door" onclick="toggleDoor(7)">13</div>
+        <div class="door" onclick="toggleDoor(8)">19</div>
+        <div class="door" onclick="toggleDoor(9)">6</div>
+        <div class="door" onclick="toggleDoor(10)">22</div>
+        <div class="door" onclick="toggleDoor(11)">2</div>
+        <div class="door" onclick="toggleDoor(12)">23</div>
+        <div class="door" onclick="toggleDoor(13)">9</div>
+        <div class="door" onclick="toggleDoor(14)">16</div>
+        <div class="door" onclick="toggleDoor(15)">5</div>
+        <div class="door" onclick="toggleDoor(16)">24</div>
+        <div class="door" onclick="toggleDoor(17)">4</div>
+        <div class="door" onclick="toggleDoor(18)">18</div>
+        <div class="door" onclick="toggleDoor(19)">12</div>
+        <div class="door" onclick="toggleDoor(20)">8</div>
+        <div class="door" onclick="toggleDoor(21)">20</div>
+        <div class="door" onclick="toggleDoor(22)">14</div>
+        <div class="door" onclick="toggleDoor(23)">1</div>
+        <div class="door" onclick="toggleDoor(24)">11</div>
     </div>
 
     <!-- Versteckte Audio-Player -->
@@ -172,6 +152,14 @@
                 audio.pause();
                 audio.currentTime = 0;
                 currentAudio = null;
+            }
+        }
+
+        function toggleDoor(id) {
+            const door = document.querySelector(`.door:nth-child(${id})`);
+            toggleAudio(id);
+            if (door) {
+                door.classList.toggle("clicked");
             }
         }
     </script>
