@@ -65,9 +65,14 @@
             overflow: hidden;
         }
 
+        /* Hellgrüne Türen mit Audio */
+        .door.active {
+            background: #32cd32; /* Hellgrün */
+            color: #fff; /* Weiß */
+        }
+
         /* Gold-Glitzereffekt bei Klick */
         .door.clicked {
-            color: #fff; /* Weiß */
             background: linear-gradient(135deg, #ffd700, #ffdf00); /* Goldener Hintergrund */
             animation: sparkle 1.5s infinite;
         }
@@ -83,12 +88,6 @@
             transform: translate(-50%, -50%);
             animation: glitter 1.5s infinite;
             pointer-events: none;
-        }
-
-        /* Türen mit hinterlegter Audio-Datei */
-        .door.active {
-            background: linear-gradient(135deg, #ffd700, #ffdf00); /* Goldener Hintergrund */
-            color: #fff; /* Weiß */
         }
 
         @keyframes sparkle {
@@ -141,12 +140,12 @@
     <div class="calendar">
         <!-- Türchen in zufälliger Reihenfolge -->
         <div class="door" onclick="toggleDoor(10)">10</div>
-        <div class="door active" onclick="toggleDoor(23)">1</div> <!-- Türchen mit Audio -->
-        <div class="door" onclick="toggleDoor(7)">13</div>
-        <div class="door active" onclick="toggleDoor(11)">2</div> <!-- Türchen mit Audio -->
+        <div class="door active" onclick="toggleDoor(1)">1</div> <!-- Türchen mit Audio -->
+        <div class="door" onclick="toggleDoor(13)">13</div>
+        <div class="door active" onclick="toggleDoor(2)">2</div> <!-- Türchen mit Audio -->
         <div class="door" onclick="toggleDoor(15)">5</div>
         <div class="door" onclick="toggleDoor(6)">17</div>
-        <div class="door active" onclick="toggleDoor(5)">3</div> <!-- Türchen mit Audio -->
+        <div class="door active" onclick="toggleDoor(3)">3</div> <!-- Türchen mit Audio -->
         <div class="door" onclick="toggleDoor(19)">12</div>
         <div class="door" onclick="toggleDoor(20)">8</div>
         <div class="door" onclick="toggleDoor(22)">14</div>
@@ -163,9 +162,9 @@
     </div>
 
     <!-- Versteckte Audio-Player -->
-    <audio id="audio23" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/7g3kz1t8qcej4f1c3tzpc/DieNaechteindenenwirnichtschliefen.unknown?rlkey=m0th1n1m4lpnoo1ssia8wd7op&st=bz9oc0nd"></audio>
-    <audio id="audio11" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/yerdsqyhu4jbuxnwf3cft/BruderInnerlich.unknown"></audio>
-    <audio id="audio5" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/k4pt5k5oacpwbc8usd2zw/Flugangst.unknown?rlkey=k64y93rau0rmtm9yhvug3pog1&st=m45jhzr3"></audio>
+    <audio id="audio1" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/7g3kz1t8qcej4f1c3tzpc/DieNaechteindenenwirnichtschliefen.unknown?rlkey=m0th1n1m4lpnoo1ssia8wd7op&st=bz9oc0nd"></audio>
+    <audio id="audio2" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/yerdsqyhu4jbuxnwf3cft/BruderInnerlich.unknown"></audio>
+    <audio id="audio3" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/k4pt5k5oacpwbc8usd2zw/Flugangst.unknown?rlkey=k64y93rau0rmtm9yhvug3pog1&st=m45jhzr3"></audio>
     <!-- Restliche Türchen -->
     <audio id="audio4" preload="auto" src=""></audio>
     <audio id="audio6" preload="auto" src=""></audio>
