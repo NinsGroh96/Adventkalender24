@@ -85,6 +85,12 @@
             pointer-events: none;
         }
 
+        /* Türen mit hinterlegter Audio-Datei */
+        .door.active {
+            background: linear-gradient(135deg, #ffd700, #ffdf00); /* Goldener Hintergrund */
+            color: #fff; /* Weiß */
+        }
+
         @keyframes sparkle {
             0%, 100% {
                 box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
@@ -134,9 +140,9 @@
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
         <!-- Türchen in zufälliger Reihenfolge -->
-        <div class="door" onclick="toggleDoor(1)">10</div>
-        <div class="door" onclick="toggleDoor(2)">21</div>
-        <div class="door" onclick="toggleDoor(3)">7</div>
+        <div class="door active" onclick="toggleDoor(1)">10</div> <!-- Türchen mit Audio -->
+        <div class="door active" onclick="toggleDoor(2)">21</div> <!-- Türchen mit Audio -->
+        <div class="door active" onclick="toggleDoor(3)">7</div> <!-- Türchen mit Audio -->
         <div class="door" onclick="toggleDoor(4)">15</div>
         <div class="door" onclick="toggleDoor(5)">3</div>
         <div class="door" onclick="toggleDoor(6)">17</div>
