@@ -35,8 +35,7 @@
         }
 
         .door {
-            background: #fff; /* Weiß */
-            color: #8b0000; /* Samtrot */
+            color: #fff; /* Weiß */
             font-weight: bold;
             font-size: 1.5rem;
             display: flex;
@@ -47,19 +46,60 @@
             cursor: pointer;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s, background 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .door:hover {
-            transform: scale(1.1);
-            background: #d2691e; /* Helles Samtrot beim Hover */
+        /* Festliche Farben */
+        .door.red {
+            background: linear-gradient(135deg, #8b0000, #b22222); /* Rote Farbverläufe */
         }
 
-        .door:active {
-            transform: scale(0.95);
+        .door.green {
+            background: linear-gradient(135deg, #006400, #228b22); /* Grüne Farbverläufe */
         }
 
-        audio {
-            display: none; /* Verstecke den Standard-Player */
+        .door.gold {
+            background: linear-gradient(135deg, #ffd700, #daa520); /* Goldene Farbverläufe */
+        }
+
+        /* Hover-Effekte */
+        .door.red:hover {
+            background: linear-gradient(135deg, #b22222, #ff4500);
+        }
+
+        .door.green:hover {
+            background: linear-gradient(135deg, #228b22, #32cd32);
+        }
+
+        .door.gold:hover {
+            background: linear-gradient(135deg, #daa520, #ffa500);
+        }
+
+        /* Glitzereffekt */
+        .door::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
+            animation: sparkle 3s infinite;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            50% {
+                transform: translate(50%, 50%) scale(1.2);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0.8);
+            }
         }
 
         @media (max-width: 768px) {
@@ -88,58 +128,42 @@
 <body>
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
-        <!-- Türchen in zufälliger Reihenfolge -->
-        <div class="door" onclick="toggleAudio(1)">10</div>
-        <div class="door" onclick="toggleAudio(2)">21</div>
-        <div class="door" onclick="toggleAudio(3)">7</div>
-        <div class="door" onclick="toggleAudio(4)">15</div>
-        <div class="door" onclick="toggleAudio(5)">3</div>
-        <div class="door" onclick="toggleAudio(6)">17</div>
-        <div class="door" onclick="toggleAudio(7)">13</div>
-        <div class="door" onclick="toggleAudio(8)">19</div>
-        <div class="door" onclick="toggleAudio(9)">6</div>
-        <div class="door" onclick="toggleAudio(10)">22</div>
-        <div class="door" onclick="toggleAudio(11)">2</div>
-        <div class="door" onclick="toggleAudio(12)">23</div>
-        <div class="door" onclick="toggleAudio(13)">9</div>
-        <div class="door" onclick="toggleAudio(14)">16</div>
-        <div class="door" onclick="toggleAudio(15)">5</div>
-        <div class="door" onclick="toggleAudio(16)">24</div>
-        <div class="door" onclick="toggleAudio(17)">4</div>
-        <div class="door" onclick="toggleAudio(18)">18</div>
-        <div class="door" onclick="toggleAudio(19)">12</div>
-        <div class="door" onclick="toggleAudio(20)">8</div>
-        <div class="door" onclick="toggleAudio(21)">20</div>
-        <div class="door" onclick="toggleAudio(22)">14</div>
-        <div class="door" onclick="toggleAudio(23)">1</div>
-        <div class="door" onclick="toggleAudio(24)">11</div>
+        <!-- Türchen in zufälliger Reihenfolge mit verschiedenen Farben -->
+        <div class="door red" onclick="toggleAudio(1)">10</div>
+        <div class="door green" onclick="toggleAudio(2)">21</div>
+        <div class="door gold" onclick="toggleAudio(3)">7</div>
+        <div class="door red" onclick="toggleAudio(4)">15</div>
+        <div class="door green" onclick="toggleAudio(5)">3</div>
+        <div class="door gold" onclick="toggleAudio(6)">17</div>
+        <div class="door red" onclick="toggleAudio(7)">13</div>
+        <div class="door green" onclick="toggleAudio(8)">19</div>
+        <div class="door gold" onclick="toggleAudio(9)">6</div>
+        <div class="door red" onclick="toggleAudio(10)">22</div>
+        <div class="door green" onclick="toggleAudio(11)">2</div>
+        <div class="door gold" onclick="toggleAudio(12)">23</div>
+        <div class="door red" onclick="toggleAudio(13)">9</div>
+        <div class="door green" onclick="toggleAudio(14)">16</div>
+        <div class="door gold" onclick="toggleAudio(15)">5</div>
+        <div class="door red" onclick="toggleAudio(16)">24</div>
+        <div class="door green" onclick="toggleAudio(17)">4</div>
+        <div class="door gold" onclick="toggleAudio(18)">18</div>
+        <div class="door red" onclick="toggleAudio(19)">12</div>
+        <div class="door green" onclick="toggleAudio(20)">8</div>
+        <div class="door gold" onclick="toggleAudio(21)">20</div>
+        <div class="door red" onclick="toggleAudio(22)">14</div>
+        <div class="door green" onclick="toggleAudio(23)">1</div>
+        <div class="door gold" onclick="toggleAudio(24)">11</div>
     </div>
 
     <!-- Versteckte Audio-Player -->
     <audio id="audio1" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/7g3kz1t8qcej4f1c3tzpc/DieNaechteindenenwirnichtschliefen.unknown?rlkey=m0th1n1m4lpnoo1ssia8wd7op&st=bz9oc0nd"></audio>
     <audio id="audio2" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/yerdsqyhu4jbuxnwf3cft/BruderInnerlich.unknown"></audio>
     <audio id="audio3" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/k4pt5k5oacpwbc8usd2zw/Flugangst.unknown?rlkey=k64y93rau0rmtm9yhvug3pog1&st=m45jhzr3"></audio>
+    <!-- Restliche Türchen -->
     <audio id="audio4" preload="auto" src=""></audio>
     <audio id="audio5" preload="auto" src=""></audio>
     <audio id="audio6" preload="auto" src=""></audio>
-    <audio id="audio7" preload="auto" src=""></audio>
-    <audio id="audio8" preload="auto" src=""></audio>
-    <audio id="audio9" preload="auto" src=""></audio>
-    <audio id="audio10" preload="auto" src=""></audio>
-    <audio id="audio11" preload="auto" src=""></audio>
-    <audio id="audio12" preload="auto" src=""></audio>
-    <audio id="audio13" preload="auto" src=""></audio>
-    <audio id="audio14" preload="auto" src=""></audio>
-    <audio id="audio15" preload="auto" src=""></audio>
-    <audio id="audio16" preload="auto" src=""></audio>
-    <audio id="audio17" preload="auto" src=""></audio>
-    <audio id="audio18" preload="auto" src=""></audio>
-    <audio id="audio19" preload="auto" src=""></audio>
-    <audio id="audio20" preload="auto" src=""></audio>
-    <audio id="audio21" preload="auto" src=""></audio>
-    <audio id="audio22" preload="auto" src=""></audio>
-    <audio id="audio23" preload="auto" src=""></audio>
-    <audio id="audio24" preload="auto" src=""></audio>
+    <!-- usw. -->
 
     <script>
         let currentAudio = null;
