@@ -65,7 +65,13 @@
             overflow: hidden;
         }
 
-        /* Bei Klick aufleuchten */
+        /* Altrosa für aktive Türen */
+        .door.active {
+            background: #D69FA2; /* Altrosa */
+            color: #fff; /* Weiß */
+        }
+
+        /* Gold-Glitzereffekt bei Klick */
         .door.clicked {
             background: linear-gradient(135deg, #ffd700, #ffdf00); /* Goldener Hintergrund */
             animation: sparkle 1.5s infinite;
@@ -133,7 +139,7 @@
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
         <!-- Türchen in zufälliger Reihenfolge -->
-        <div class="door" onclick="toggleDoor(1)">1</div>
+        <div class="door active" onclick="toggleDoor(1)">1</div> <!-- Türchen mit Audio -->
         <div class="door" onclick="toggleDoor(2)">2</div>
         <div class="door" onclick="toggleDoor(3)">3</div>
         <div class="door" onclick="toggleDoor(4)">4</div>
@@ -159,9 +165,31 @@
         <div class="door" onclick="toggleDoor(24)">24</div>
     </div>
 
+    <!-- Versteckter Audio-Player für Tag 1 -->
+    <audio id="audio1" preload="auto" src="https://www.dropbox.com/scl/fi/6ocy4ib5j9fc2eh7eh7g2/final_FlugangsthaelteineninderLuft.mp3?rlkey=qal82s5smv4qn746iw9w2yg0r&st=ut9h5yqb&dl=0"></audio>
+
     <script>
+        let currentAudio = null;
+
+        function toggleAudio(id) {
+            const audio = document.getElementById(`audio${id}`);
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            if (audio.paused) {
+                audio.play();
+                currentAudio = audio;
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+                currentAudio = null;
+            }
+        }
+
         function toggleDoor(id) {
             const door = document.querySelector(`.door:nth-child(${id})`);
+            toggleAudio(id);
             if (door) {
                 door.classList.toggle("clicked");
             }
