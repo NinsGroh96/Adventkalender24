@@ -38,8 +38,8 @@
         }
 
         .door {
-            background: #D69FA2; /* Altrosa */
-            color: #fff; /* Weiß */
+            background: #fff; /* Standard Weiß */
+            color: #8b0000; /* Dunkelrot */
             font-weight: bold;
             font-size: 1.8rem;
             display: flex;
@@ -52,6 +52,11 @@
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s, background 0.3s;
             position: relative;
+        }
+
+        .door.active {
+            background: #D69FA2; /* Altrosa für Türchen mit Audio */
+            color: #fff; /* Weiß */
         }
 
         .door:hover {
@@ -120,38 +125,34 @@
 <body>
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
-        <!-- 24 Türchen -->
-        <div class="door" onclick="toggleDoor(1)">1
+        <!-- Alle 24 Türchen -->
+        <div class="door active" onclick="toggleDoor(1)">1
             <audio id="audio1" class="audio-player" controls>
                 <source src="https://ninsgroh96.github.io/Adventkalender24/Tag1.mp3" type="audio/mpeg">
                 Dein Browser unterstützt das Audio-Element nicht.
             </audio>
         </div>
-        <div class="door" onclick="toggleDoor(2)">2
+        <div class="door active" onclick="toggleDoor(2)">2
             <audio id="audio2" class="audio-player" controls>
                 <source src="https://ninsgroh96.github.io/Adventkalender24/Tag2.mp3" type="audio/mpeg">
                 Dein Browser unterstützt das Audio-Element nicht.
             </audio>
         </div>
-        <div class="door" onclick="toggleDoor(3)">3
+        <div class="door active" onclick="toggleDoor(3)">3
             <audio id="audio3" class="audio-player" controls>
                 <source src="https://ninsgroh96.github.io/Adventkalender24/Tag3.mp3" type="audio/mpeg">
                 Dein Browser unterstützt das Audio-Element nicht.
             </audio>
         </div>
-        <div class="door" onclick="toggleDoor(4)">4
-            <audio id="audio4" class="audio-player" controls>
-                <source src="https://ninsgroh96.github.io/Adventkalender24/Tag4.mp3" type="audio/mpeg">
+        <div class="door" onclick="toggleDoor(4)">4</div>
+        <div class="door" onclick="toggleDoor(5)">5</div>
+        <div class="door active" onclick="toggleDoor(6)">6
+            <audio id="audio6" class="audio-player" controls>
+                <source src="https://ninsgroh96.github.io/Adventkalender24/Tag6.mp3" type="audio/mpeg">
                 Dein Browser unterstützt das Audio-Element nicht.
             </audio>
         </div>
-        <div class="door" onclick="toggleDoor(5)">5
-            <audio id="audio5" class="audio-player" controls>
-                <source src="https://ninsgroh96.github.io/Adventkalender24/Tag5.mp3" type="audio/mpeg">
-                Dein Browser unterstützt das Audio-Element nicht.
-            </audio>
-        </div>
-        <!-- Wiederhole für die restlichen Türchen bis 24 -->
+        <!-- Weitere leere und aktive Türchen -->
         <div class="door" onclick="toggleDoor(24)">24
             <audio id="audio24" class="audio-player" controls>
                 <source src="https://ninsgroh96.github.io/Adventkalender24/Tag24.mp3" type="audio/mpeg">
