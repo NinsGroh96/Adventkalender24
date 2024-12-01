@@ -149,4 +149,37 @@
 
     <!-- Schneeflocken -->
     <div class="snowflake">❄</div>
-    <div class="snowflake">❄</
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+
+    <script>
+        let currentAudio = null;
+
+        function toggleDoor(id) {
+            const allDoors = document.querySelectorAll('.door');
+            allDoors.forEach((door, index) => {
+                const audio = door.querySelector('audio');
+                if (index + 1 === id) {
+                    door.classList.toggle('clicked');
+                    if (!audio.paused) {
+                        audio.pause();
+                        audio.currentTime = 0;
+                    } else {
+                        audio.play();
+                        currentAudio = audio;
+                    }
+                } else {
+                    door.classList.remove('clicked');
+                    if (audio) {
+                        audio.pause();
+                        audio.currentTime = 0;
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
