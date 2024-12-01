@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #274046, #e6dada); /* Winterliche Farben */
-            color: #fff;
+            background: #8b0000; /* Dunkles Samtrot */
+            color: #fff; /* Weiß */
             text-align: center;
             margin: 0;
             padding: 0;
@@ -17,13 +17,21 @@
             align-items: center;
         }
 
+        h1 {
+            margin: 20px 0;
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
         .calendar {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
+            gap: 10px;
             padding: 20px;
-            width: 90%;
+            width: 100%;
             max-width: 600px;
+            box-sizing: border-box;
         }
 
         .door {
@@ -45,6 +53,11 @@
             transform: scale(1.1);
         }
 
+        .door.active {
+            background: #D69FA2; /* Altrosa */
+            color: #fff; /* Weiß */
+        }
+
         .door.clicked {
             background: linear-gradient(135deg, #ffd700, #ffdf00); /* Goldener Hintergrund */
         }
@@ -53,16 +66,12 @@
 <body>
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
+        <!-- Türchen mit Audio -->
         <div class="door active" onclick="toggleDoor(1)">1</div>
-        <div class="door" onclick="toggleDoor(2)">2</div>
-        <div class="door" onclick="toggleDoor(3)">3</div>
-        <!-- Weitere Türchen hier -->
     </div>
 
-    <!-- Versteckte Audio-Player -->
-    <audio id="audio1" preload="auto" src="https://your-hosting-service.com/audio-file-1.mp3"></audio>
-    <audio id="audio2" preload="auto" src="https://your-hosting-service.com/audio-file-2.mp3"></audio>
-    <audio id="audio3" preload="auto" src="https://your-hosting-service.com/audio-file-3.mp3"></audio>
+    <!-- Versteckter Audio-Player -->
+    <audio id="audio1" preload="auto" src="https://drive.google.com/uc?export=download&id=1AeMz9BS_os1LX8-1_HUhmjUuDjANmtM7"></audio>
 
     <script>
         let currentAudio = null;
@@ -93,3 +102,4 @@
     </script>
 </body>
 </html>
+
