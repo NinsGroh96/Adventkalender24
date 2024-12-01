@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -77,38 +78,12 @@
 <body>
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
-        <!-- Türchen mit Audios -->
-        <div class="door active" onclick="toggleDoor(1)">1</div> <!-- Tür mit Audio -->
-        <div class="door active" onclick="toggleDoor(2)">2</div> <!-- Tür mit Audio -->
-        <div class="door active" onclick="toggleDoor(3)">3</div> <!-- Tür mit Audio -->
-        <!-- Weitere Türchen -->
-        <div class="door" onclick="toggleDoor(4)">4</div>
-        <div class="door" onclick="toggleDoor(5)">5</div>
-        <div class="door" onclick="toggleDoor(6)">6</div>
-        <div class="door" onclick="toggleDoor(7)">7</div>
-        <div class="door" onclick="toggleDoor(8)">8</div>
-        <div class="door" onclick="toggleDoor(9)">9</div>
-        <div class="door" onclick="toggleDoor(10)">10</div>
-        <div class="door" onclick="toggleDoor(11)">11</div>
-        <div class="door" onclick="toggleDoor(12)">12</div>
-        <div class="door" onclick="toggleDoor(13)">13</div>
-        <div class="door" onclick="toggleDoor(14)">14</div>
-        <div class="door" onclick="toggleDoor(15)">15</div>
-        <div class="door" onclick="toggleDoor(16)">16</div>
-        <div class="door" onclick="toggleDoor(17)">17</div>
-        <div class="door" onclick="toggleDoor(18)">18</div>
-        <div class="door" onclick="toggleDoor(19)">19</div>
-        <div class="door" onclick="toggleDoor(20)">20</div>
-        <div class="door" onclick="toggleDoor(21)">21</div>
-        <div class="door" onclick="toggleDoor(22)">22</div>
-        <div class="door" onclick="toggleDoor(23)">23</div>
-        <div class="door" onclick="toggleDoor(24)">24</div>
+        <!-- Türchen 1 mit Audio -->
+        <div class="door active" onclick="toggleDoor(1)">1</div>
     </div>
 
-    <!-- Versteckte Audio-Player -->
+    <!-- Versteckter Audio-Player für Tag 1 -->
     <audio id="audio1" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/7g3kz1t8qcej4f1c3tzpc/DieNaechteindenenwirnichtschliefen.unknown?rlkey=m0th1n1m4lpnoo1ssia8wd7op&st=bz9oc0nd"></audio>
-    <audio id="audio2" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/yerdsqyhu4jbuxnwf3cft/BruderInnerlich.unknown"></audio>
-    <audio id="audio3" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/k4pt5k5oacpwbc8usd2zw/Flugangst.unknown?rlkey=k64y93rau0rmtm9yhvug3pog1&st=m45jhzr3"></audio>
 
     <script>
         let currentAudio = null;
