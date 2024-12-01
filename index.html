@@ -22,20 +22,6 @@
             font-size: 2.5rem;
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            word-wrap: break-word;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem; /* Kleinere Schriftgröße für Tablets */
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem; /* Noch kleinere Schriftgröße für Smartphones */
-            }
         }
 
         .calendar {
@@ -61,8 +47,10 @@
             cursor: pointer;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s, background 0.3s;
-            position: relative;
-            overflow: hidden;
+        }
+
+        .door:hover {
+            transform: scale(1.1);
         }
 
         .door.active {
@@ -72,45 +60,18 @@
 
         .door.clicked {
             background: linear-gradient(135deg, #ffd700, #ffdf00); /* Goldener Hintergrund */
-            animation: sparkle 1.5s infinite;
-        }
-
-        .door:hover {
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .calendar {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .door {
-                height: 80px;
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .calendar {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .door {
-                height: 70px;
-                font-size: 1rem;
-            }
         }
     </style>
 </head>
 <body>
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
-        <!-- Türchen mit dem neuen Audio-Link -->
+        <!-- Türchen mit Audio -->
         <div class="door active" onclick="toggleDoor(1)">1</div>
     </div>
 
     <!-- Versteckter Audio-Player -->
-    <audio id="audio1" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/1txplymgk981sl1t3z6el/Tag1.mp3"></audio>
+    <audio id="audio1" preload="auto" src="https://drive.google.com/uc?export=download&id=1AeMz9BS_os1LX8-1_HUhmjUuDjANmtM7"></audio>
 
     <script>
         let currentAudio = null;
