@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎄 Adventskalender 🎄</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+
         body {
-            font-family: 'Arial', sans-serif;
-            background: #8b0000; /* Dunkles Samtrot */
+            font-family: 'Mountains of Christmas', cursive;
+            background: linear-gradient(to bottom, #274046, #e6dada); /* Winterliche Farben */
             color: #fff; /* Weiß */
             text-align: center;
             margin: 0;
@@ -15,11 +17,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow: hidden;
         }
 
         h1 {
             margin: 20px 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
@@ -27,9 +30,9 @@
         .calendar {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 15px;
             padding: 20px;
-            width: 100%;
+            width: 90%;
             max-width: 600px;
             box-sizing: border-box;
         }
@@ -47,31 +50,106 @@
             cursor: pointer;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s, background 0.3s;
+            position: relative;
         }
 
         .door:hover {
             transform: scale(1.1);
         }
 
-        .door.active {
-            background: #D69FA2; /* Altrosa */
-            color: #fff; /* Weiß */
-        }
-
         .door.clicked {
             background: linear-gradient(135deg, #ffd700, #ffdf00); /* Goldener Hintergrund */
+        }
+
+        .door.active {
+            background: #d2691e; /* Winterliches Orange für aktive Türchen */
+            color: #fff;
+        }
+
+        @keyframes snow {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            font-size: 1em;
+            animation: snow 10s linear infinite;
+            pointer-events: none;
+        }
+
+        .snowflake:nth-child(1) {
+            left: 10%;
+            font-size: 1.5em;
+            animation-duration: 8s;
+        }
+
+        .snowflake:nth-child(2) {
+            left: 20%;
+            font-size: 1.8em;
+            animation-duration: 6s;
+        }
+
+        .snowflake:nth-child(3) {
+            left: 50%;
+            font-size: 2em;
+            animation-duration: 10s;
+        }
+
+        .snowflake:nth-child(4) {
+            left: 70%;
+            font-size: 1.3em;
+            animation-duration: 7s;
+        }
+
+        .snowflake:nth-child(5) {
+            left: 90%;
+            font-size: 1.7em;
+            animation-duration: 9s;
         }
     </style>
 </head>
 <body>
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
-        <!-- Türchen mit Audio -->
+        <!-- Türchen mit Nummern 1 bis 24 -->
         <div class="door active" onclick="toggleDoor(1)">1</div>
+        <div class="door" onclick="toggleDoor(2)">2</div>
+        <div class="door" onclick="toggleDoor(3)">3</div>
+        <div class="door" onclick="toggleDoor(4)">4</div>
+        <div class="door" onclick="toggleDoor(5)">5</div>
+        <div class="door" onclick="toggleDoor(6)">6</div>
+        <div class="door" onclick="toggleDoor(7)">7</div>
+        <div class="door" onclick="toggleDoor(8)">8</div>
+        <div class="door" onclick="toggleDoor(9)">9</div>
+        <div class="door" onclick="toggleDoor(10)">10</div>
+        <div class="door" onclick="toggleDoor(11)">11</div>
+        <div class="door" onclick="toggleDoor(12)">12</div>
+        <div class="door" onclick="toggleDoor(13)">13</div>
+        <div class="door" onclick="toggleDoor(14)">14</div>
+        <div class="door" onclick="toggleDoor(15)">15</div>
+        <div class="door" onclick="toggleDoor(16)">16</div>
+        <div class="door" onclick="toggleDoor(17)">17</div>
+        <div class="door" onclick="toggleDoor(18)">18</div>
+        <div class="door" onclick="toggleDoor(19)">19</div>
+        <div class="door" onclick="toggleDoor(20)">20</div>
+        <div class="door" onclick="toggleDoor(21)">21</div>
+        <div class="door" onclick="toggleDoor(22)">22</div>
+        <div class="door" onclick="toggleDoor(23)">23</div>
+        <div class="door" onclick="toggleDoor(24)">24</div>
     </div>
 
-    <!-- Versteckter Audio-Player -->
-    <audio id="audio1" preload="auto" src="https://ninsgroh96.github.io/Adventkalender24/Tag1.mp3"></audio>
+    <!-- Versteckte Audio-Player -->
+    <audio id="audio1" preload="auto" src="https://your-audio-link-here.mp3"></audio>
+
+    <!-- Schneeflocken -->
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
 
     <script>
         let currentAudio = null;
