@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -66,24 +65,52 @@
             overflow: hidden;
         }
 
-        .door:hover {
-            transform: scale(1.1);
+        .door.active {
+            background: #D69FA2; /* Altrosa */
+            color: #fff; /* Weiß */
         }
 
         .door.clicked {
             background: linear-gradient(135deg, #ffd700, #ffdf00); /* Goldener Hintergrund */
+            animation: sparkle 1.5s infinite;
+        }
+
+        .door:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .calendar {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .door {
+                height: 80px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .door {
+                height: 70px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
-        <!-- Türchen 1 mit Audio -->
+        <!-- Türchen mit dem neuen Audio-Link -->
         <div class="door active" onclick="toggleDoor(1)">1</div>
     </div>
 
-    <!-- Versteckter Audio-Player für Tag 1 -->
-    <audio id="audio1" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/7g3kz1t8qcej4f1c3tzpc/DieNaechteindenenwirnichtschliefen.unknown?rlkey=m0th1n1m4lpnoo1ssia8wd7op&st=bz9oc0nd"></audio>
+    <!-- Versteckter Audio-Player -->
+    <audio id="audio1" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/1txplymgk981sl1t3z6el/Tag1.mp3"></audio>
 
     <script>
         let currentAudio = null;
