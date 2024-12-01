@@ -65,80 +65,23 @@
             overflow: hidden;
         }
 
-        /* Altrosa für aktive Türen */
+        .door:hover {
+            transform: scale(1.1);
+        }
+
         .door.active {
             background: #D69FA2; /* Altrosa */
             color: #fff; /* Weiß */
         }
 
-        /* Gold-Glitzereffekt bei Klick */
         .door.clicked {
-            background: linear-gradient(135deg, #ffd700, #ffdf00); /* Goldener Hintergrund */
-            animation: sparkle 1.5s infinite;
-        }
-
-        .door.clicked::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
-            transform: translate(-50%, -50%);
-            animation: glitter 1.5s infinite;
-            pointer-events: none;
-        }
-
-        @keyframes sparkle {
-            0%, 100% {
-                box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
-            }
-            50% {
-                box-shadow: 0 0 20px #ffdf00, 0 0 30px #ffd700;
-            }
-        }
-
-        @keyframes glitter {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-        }
-
-        .door:hover {
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .calendar {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .door {
-                height: 80px;
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .calendar {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .door {
-                height: 70px;
-                font-size: 1rem;
-            }
+            background: linear-gradient(135deg, #ffd700, #ffdf00);
         }
     </style>
 </head>
 <body>
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
-        <!-- Türchen in zufälliger Reihenfolge -->
         <div class="door active" onclick="toggleDoor(1)">1</div> <!-- Türchen mit Audio -->
         <div class="door" onclick="toggleDoor(2)">2</div>
         <div class="door" onclick="toggleDoor(3)">3</div>
@@ -165,8 +108,7 @@
         <div class="door" onclick="toggleDoor(24)">24</div>
     </div>
 
-    <!-- Versteckter Audio-Player für Tag 1 -->
-    <audio id="audio1" preload="auto" src="https://dl.dropboxusercontent.com/scl/fi/1txplymgk981sl1t3z6el/Tag1.mp3"></audio>
+    <audio id="audio1" preload="auto" src="https://drive.google.com/uc?export=download&id=1AeMz9BS_os1LX8-1_HUhmjUuDjANmtM7"></audio>
 
     <script>
         let currentAudio = null;
