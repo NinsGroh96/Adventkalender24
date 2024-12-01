@@ -14,25 +14,32 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Keine horizontale Scrollleiste */
+            overflow-x: hidden;
         }
 
         h1 {
-            margin: 20px 0;
-            font-size: 3rem;
+            margin: 20px 20px;
+            font-size: 2.5rem;
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .calendar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Passt sich an die Bildschirmgröße an */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 10px;
             padding: 20px;
-            width: 90%;
+            width: 100%;
             max-width: 800px;
             margin: 0 auto;
             box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
 
         .door {
@@ -44,7 +51,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 120px; /* Kleinere Türchen für mobile Geräte */
+            height: 120px;
+            width: 100px; /* Einheitliche Breite */
             border-radius: 10px;
             cursor: pointer;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
@@ -123,40 +131,44 @@
 <body>
     <h1>🎄 Adventskalender 🎄</h1>
     <div class="calendar">
-        <!-- Alle 24 Türchen -->
-        <div class="door active" onclick="toggleDoor(1)">1
-            <audio id="audio1" class="audio-player" controls>
-                <source src="https://ninsgroh96.github.io/Adventkalender24/Tag1.mp3" type="audio/mpeg">
-                Dein Browser unterstützt das Audio-Element nicht.
-            </audio>
+        <!-- Reihen für Pyramidenform -->
+        <div class="row">
+            <div class="door" onclick="toggleDoor(1)">1</div>
         </div>
-        <div class="door" onclick="toggleDoor(2)">2</div>
-        <div class="door" onclick="toggleDoor(3)">3</div>
-        <div class="door" onclick="toggleDoor(4)">4</div>
-        <div class="door" onclick="toggleDoor(5)">5</div>
-        <div class="door" onclick="toggleDoor(6)">6</div>
-        <div class="door" onclick="toggleDoor(7)">7</div>
-        <div class="door" onclick="toggleDoor(8)">8</div>
-        <div class="door" onclick="toggleDoor(9)">9</div>
-        <div class="door" onclick="toggleDoor(10)">10</div>
-        <div class="door" onclick="toggleDoor(11)">11</div>
-        <div class="door" onclick="toggleDoor(12)">12</div>
-        <div class="door" onclick="toggleDoor(13)">13</div>
-        <div class="door" onclick="toggleDoor(14)">14</div>
-        <div class="door" onclick="toggleDoor(15)">15</div>
-        <div class="door" onclick="toggleDoor(16)">16</div>
-        <div class="door" onclick="toggleDoor(17)">17</div>
-        <div class="door" onclick="toggleDoor(18)">18</div>
-        <div class="door" onclick="toggleDoor(19)">19</div>
-        <div class="door" onclick="toggleDoor(20)">20</div>
-        <div class="door" onclick="toggleDoor(21)">21</div>
-        <div class="door" onclick="toggleDoor(22)">22</div>
-        <div class="door" onclick="toggleDoor(23)">23</div>
-        <div class="door active" onclick="toggleDoor(24)">24
-            <audio id="audio24" class="audio-player" controls>
-                <source src="https://ninsgroh96.github.io/Adventkalender24/Tag24.mp3" type="audio/mpeg">
-                Dein Browser unterstützt das Audio-Element nicht.
-            </audio>
+        <div class="row">
+            <div class="door" onclick="toggleDoor(2)">2</div>
+            <div class="door" onclick="toggleDoor(3)">3</div>
+        </div>
+        <div class="row">
+            <div class="door" onclick="toggleDoor(4)">4</div>
+            <div class="door" onclick="toggleDoor(5)">5</div>
+            <div class="door" onclick="toggleDoor(6)">6</div>
+        </div>
+        <div class="row">
+            <div class="door" onclick="toggleDoor(7)">7</div>
+            <div class="door" onclick="toggleDoor(8)">8</div>
+            <div class="door" onclick="toggleDoor(9)">9</div>
+            <div class="door" onclick="toggleDoor(10)">10</div>
+        </div>
+        <div class="row">
+            <div class="door" onclick="toggleDoor(11)">11</div>
+            <div class="door" onclick="toggleDoor(12)">12</div>
+            <div class="door" onclick="toggleDoor(13)">13</div>
+            <div class="door" onclick="toggleDoor(14)">14</div>
+            <div class="door" onclick="toggleDoor(15)">15</div>
+        </div>
+        <div class="row">
+            <div class="door" onclick="toggleDoor(16)">16</div>
+            <div class="door" onclick="toggleDoor(17)">17</div>
+            <div class="door" onclick="toggleDoor(18)">18</div>
+            <div class="door" onclick="toggleDoor(19)">19</div>
+            <div class="door" onclick="toggleDoor(20)">20</div>
+            <div class="door" onclick="toggleDoor(21)">21</div>
+        </div>
+        <div class="row">
+            <div class="door" onclick="toggleDoor(22)">22</div>
+            <div class="door" onclick="toggleDoor(23)">23</div>
+            <div class="door" onclick="toggleDoor(24)">24</div>
         </div>
     </div>
 
@@ -173,22 +185,10 @@
         function toggleDoor(id) {
             const allDoors = document.querySelectorAll('.door');
             allDoors.forEach((door, index) => {
-                const audio = door.querySelector('audio');
                 if (index + 1 === id) {
                     door.classList.toggle('clicked');
-                    if (!audio.paused) {
-                        audio.pause();
-                        audio.currentTime = 0;
-                    } else {
-                        audio.play();
-                        currentAudio = audio;
-                    }
                 } else {
                     door.classList.remove('clicked');
-                    if (audio) {
-                        audio.pause();
-                        audio.currentTime = 0;
-                    }
                 }
             });
         }
